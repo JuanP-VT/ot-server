@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cool = require('cool-ascii-faces');
 const app = express();
 app.use(express.json());
 //Conexión a la base de datos
@@ -9,14 +10,12 @@ mongoose.connect(
     console.log("Connected to MongoDB");
   }
 );
-app.use('/',(req, res)=>{
-  res.send({res:'hello'})
-})
+
 //Este endpoint agrega y consulta las categorias existentes
 const categoriaRouter = require("./routes/Categorias");
-app.use("categorias", categoriaRouter);
+app.use("/categorias", categoriaRouter);
 
 //Este endpoint agrega y consulta los productos existentes
 const productRouter = require("./routes/Products");
-app.use("products", productRouter);
+app.use("/products", productRouter);
 app.listen(process.env.PORT || 5000)
