@@ -10,7 +10,10 @@ mongoose.connect(
   }
 );
 //Este endpoint agrega y consulta las categorias existentes
-const userRouter = require("./routes/Categorias");
-app.use("/categorias", userRouter);
+const categoriaRouter = require("./routes/Categorias");
+app.use("/categorias", categoriaRouter);
 
+//Este endpoint agrega y consulta los productos existentes
+const productRouter = require("./routes/Products");
+app.use("/products", productRouter);
 app.listen(3100);
