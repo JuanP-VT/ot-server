@@ -38,4 +38,14 @@ router.get("/", async (req, res) => {
     res.status(500).send({ res: error.message });
   }
 });
+
+// Este endpoint solicita todos los productos por categoria
+router.post("/search", async (req, res) => {
+  try {
+    const search = await Products.where("categoria").equals(req.body.categoria);
+    res.send(search);
+  } catch (error) {
+    res.status(500).send({ res: error.message });
+  }
+});
 module.exports = router;
