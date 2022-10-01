@@ -53,8 +53,8 @@ router.post("/search", async (req, res) => {
 // Este endpoint borrar el producto de la base de datos
 router.delete("/", async (req, res) => {
   try {
-    const test = await Products.findOneAndDelete({ _id: req.body._id });
-    res.send({ res: `${test.name} borrado de la base de datos con éxito` });
+    const search = await Products.findOneAndDelete({ _id: req.body._id });
+    res.send({ res: `${search.name} borrado de la base de datos con éxito` });
   } catch (error) {
     res.status(500).send({ res: error.message });
   }
