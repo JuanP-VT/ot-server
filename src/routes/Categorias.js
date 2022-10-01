@@ -16,10 +16,18 @@ router.post("/", async (req, res) => {
     const categoriaName = req.body.name.toLowerCase();
     const newCategoria = new Categoria({ name: categoriaName });
     newCategoria.save();
-    res.send({ res: "Categoria creada con exito", categoria: newCategoria });
+    res.send({ res: "Categoria creada con éxito", categoria: newCategoria });
   } catch (error) {
     res.status(500).send({ res: error.message });
   }
 });
-
+// Este endpoint solicita toda las categorias guardadas en la base de datos
+router.get("/", async (req, res) => {
+  try {
+    const search = await Categoria.where("name");
+    res.send(search);
+  } catch (error) {
+    res.status(500).send({ res: error.message });
+  }
+});
 module.exports = router;
