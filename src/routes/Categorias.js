@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Categoria = require("../models/Categoria");
+const Categoria = require("../models/CategoriaModel");
 
 //Este endpoint agregará una nueva categoria a la base de datos
 router.post("/", async (req, res) => {
