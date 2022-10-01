@@ -16,4 +16,4 @@ app.use("/categorias", categoriaRouter);
 //Este endpoint agrega y consulta los productos existentes
 const productRouter = require("./routes/Products");
 app.use("/products", productRouter);
-app.listen(3100);
+app.listen(process.env.PORT || 5000)
