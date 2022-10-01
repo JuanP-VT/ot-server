@@ -1,11 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const cool = require('cool-ascii-faces');
+const uri = process.env.MONGODB_URI;
 const app = express();
 app.use(express.json());
 //Conexión a la base de datos
 mongoose.connect(
-  "mongodb+srv://PB:OlaTech@cluster0.mgq46sx.mongodb.net/?retryWrites=true&w=majority",
+  uri||"mongodb+srv://PB:OlaTech@cluster0.mgq46sx.mongodb.net/?retryWrites=true&w=majority",
   () => {
     console.log("Connected to MongoDB");
   }
