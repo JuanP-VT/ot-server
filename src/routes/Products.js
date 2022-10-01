@@ -29,5 +29,13 @@ router.post("/", async (req, res) => {
     res.status(500).send({ res: error.message });
   }
 });
-
+// Este endpoint solicita todos los productos guardados en la base de datos
+router.get("/", async (req, res) => {
+  try {
+    const search = await Products.where("name");
+    res.send(search);
+  } catch (error) {
+    res.status(500).send({ res: error.message });
+  }
+});
 module.exports = router;
