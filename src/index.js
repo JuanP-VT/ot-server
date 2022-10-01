@@ -9,6 +9,9 @@ mongoose.connect(
     console.log("Connected to MongoDB");
   }
 );
+app.use('/',(req, res)=>{
+  res.send({res:'hello'})
+})
 //Este endpoint agrega y consulta las categorias existentes
 const categoriaRouter = require("./routes/Categorias");
 app.use("/categorias", categoriaRouter);
