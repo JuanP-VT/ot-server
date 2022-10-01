@@ -1,0 +1,26 @@
+{
+  "name": "ot-server",
+  "version": "1.0.0",
+  "description": "Backend",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuanP-VT/ot-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JuanP-VT/ot-server/issues"
+  },
+  "homepage": "https://github.com/JuanP-VT/ot-server#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.6.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
