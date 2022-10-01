@@ -6,8 +6,12 @@ const Products = require("../models/ProductModel");
 router.post("/", async (req, res) => {
   try {
     //Primero validamos que el nombre no esté ya en la base de datos
-    const search = await Products.where("name").equals(req.body.name);
+    const search = await Products.where("name").equals(
+      req.body.name.toLowerCase()
+    );
+    console.log(search);
     if (search.length !== 0) {
+      console.log("hi");
       res.send({ res: "El producto ya está en la base de datos" });
       return;
     }
@@ -48,4 +52,5 @@ router.post("/search", async (req, res) => {
     res.status(500).send({ res: error.message });
   }
 });
+
 module.exports = router;
