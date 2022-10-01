@@ -32,4 +32,14 @@ router.get("/", async (req, res) => {
     res.status(500).send({ res: error.message });
   }
 });
+
+// Este endpoint borrar la categoria de la base de datos
+router.delete("/", async (req, res) => {
+  try {
+    const search = await Categoria.findOneAndDelete({ _id: req.body._id });
+    res.send({ res: `${search.name} borrado de la base de datos con éxito` });
+  } catch (error) {
+    res.status(500).send({ res: error.message });
+  }
+});
 module.exports = router;
