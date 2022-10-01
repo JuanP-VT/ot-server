@@ -5,10 +5,7 @@ const app = express();
 app.use(express.json());
 //Conexión a la base de datos
 mongoose.connect(
-  uri||"mongodb+srv://PB:OlaTech@cluster0.mgq46sx.mongodb.net/?retryWrites=true&w=majority",{
-    useNewUrlParser:true,
-    useUnifiedTopology:true
-  }
+  uri||"mongodb+srv://PB:OlaTech@cluster0.mgq46sx.mongodb.net/?retryWrites=true&w=majority",
 );
 
 //Este endpoint agrega y consulta las categorias existentes
