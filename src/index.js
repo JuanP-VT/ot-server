@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const uri = process.env.MONGODB_URI;
 const app = express();
+//Cors
 const cors = require('cors')
 app.use(cors({
   origin:"*"
