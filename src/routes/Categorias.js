@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
     //Si el nombre esta disponible continuamos creando la nueva categoria
     // Formateamos a lowercase
     const categoriaName = req.body.name.toLowerCase();
-    const newCategoria = new Categoria({ name: categoriaName });
+    const newCategoria = new Categoria({ name: categoriaName,imgUrl:req.body.imgUrl });
     newCategoria.save();
     res.send({ res: "Categoria creada con éxito", categoria: newCategoria });
   } catch (error) {
