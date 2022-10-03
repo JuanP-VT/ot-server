@@ -2,6 +2,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const uri = process.env.MONGODB_URI;
 const app = express();
+const cors = require('cors')
+app.use(cors({
+  origin:"*"
+}))
 app.use(express.json());
 //Conexión a la base de datos
 mongoose.connect(
