@@ -59,4 +59,16 @@ router.delete("/", async (req, res) => {
     res.status(500).send({ res: error.message });
   }
 });
+// Este endpoint edita un producto en base al _id
+router.put("/", async (req, res) => {
+  try {
+    const search = await Products.where('_id').equals(req.body._id)
+    const filter = {_id:req.body._id}
+    const update ={name:req.body.name, categoria:req.categoria, unidadesDisponibles:req.body.unidadesDisponibles,precio:req.body.precio}
+    const updated = await Products.findOneAndUpdate(filter,update)
+    res.send({res:updated})
+  } catch (error) {
+    res.status(500).send({ res: error.message });
+  }
+});
 module.exports = router;
